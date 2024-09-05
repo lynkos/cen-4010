@@ -1,0 +1,14 @@
+.login_container {
+
+
+}
+
+.anchor-pane {
+
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-border-insets: 5;
+
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5),10,0.5,5,5);
+}

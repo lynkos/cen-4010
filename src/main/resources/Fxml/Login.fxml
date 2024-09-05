@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="273.0" prefWidth="485.0" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.md.gm.Controllers.LoginController">
+   <children>
+      <ImageView fitHeight="302.0" fitWidth="485.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Login.jpg" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="20.0" layoutY="14.0" prefHeight="99.0" prefWidth="200.0" text="Welcome to Grocery Manager" textAlignment="CENTER" textFill="#242b8f" textOverrun="WORD_ELLIPSIS" wrapText="true">
+         <font>
+            <Font name="Stencil" size="18.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Label>
+      <AnchorPane layoutX="262.0" layoutY="29.0" prefHeight="168.0" prefWidth="200.0" styleClass="anchor-pane" stylesheets="@../Styles/login.css">
+         <children>
+            <TextField layoutX="26.0" layoutY="49.0" promptText="username/password" />
+            <PasswordField layoutX="26.0" layoutY="84.0" promptText="password" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
