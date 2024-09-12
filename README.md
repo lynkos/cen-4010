@@ -5,8 +5,8 @@
 > [!TIP]
 > Refer to [this issue](https://github.com/lynkos/cen-4010/issues/1) for further details
 - [x] [IntelliJ IDEA](https://www.jetbrains.com/community/education/#students)
-- [x] [Java](https://www.java.com/en)
-- [x] [JavaFX](https://openjfx.io/)
+- [x] [Oracle OpenJDK 22](https://jdk.java.net/22) (i.e. Java)
+- [x] [JavaFX 22](https://jdk.java.net/javafx22)
 - [x] [Scene Builder](https://gluonhq.com/products/scene-builder)
 
 ## Installation
@@ -75,5 +75,9 @@ git clone https://github.com/lynkos/cen-4010.git
 ```
 
 ## Usage
-1. Lorem
-2. Ipsum
+WIP
+
+## References
+- [SDKs: IntelliJ IDEA](https://www.jetbrains.com/help/idea/sdk.html)
+- [Git: IntelliJ IDEA](https://www.jetbrains.com/help/idea/using-git-integration.html)
+- [How to select the JDK (i.e. Java SDK) version IntelliJ IDEA will run under](https://intellij-support.jetbrains.com/hc/en-us/articles/206544879-Selecting-the-JDK-version-the-IDE-will-run-under)
