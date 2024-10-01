@@ -1,14 +1,38 @@
 .login_container {
 
 
-}
+    .anchor-pane {
 
-.anchor-pane {
+        -fx-border-color: black;
+        -fx-border-width: 2px;
+        -fx-border-insets: 5;
 
-    -fx-border-color: black;
-    -fx-border-width: 2px;
-    -fx-border-style: solid;
-    -fx-border-insets: 5;
+        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 5, 5);
+    }
 
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5),10,0.5,5,5);
+    .login_welcome {
+
+        -fx-font-family: "SansSerif";
+        -fx-font-weight: 400;
+        -fx-font-size: 24px;
+        -fx-spacing: 1.5;
+
+        -fx-text-fill: #FFFFFF;
+        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 5, 5);
+
+
+
+    }
+    .login_text {
+
+        -fx-font-family: "Roboto";
+        -fx-font-weight: 400;
+        -fx-font-size: 24px;
+        -fx-spacing: 1.5;
+        -fx-text-fill: #FFFFFF;
+    }
+
+
+
+
 }

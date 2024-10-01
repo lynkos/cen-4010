@@ -9,18 +9,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="273.0" prefWidth="485.0" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.md.gm.Controllers.LoginController">
+<AnchorPane prefHeight="800.0" prefWidth="600.0" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.md.gm.Controllers.LoginController">
    <children>
-      <ImageView fitHeight="302.0" fitWidth="485.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="800.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" styleClass="login_container">
          <image>
-            <Image url="@../../../Login.jpg" />
+            <Image url="@../Images/Login.jpeg" />
          </image>
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <Label layoutX="20.0" layoutY="14.0" prefHeight="99.0" prefWidth="200.0" text="Welcome to Grocery Manager" textAlignment="CENTER" textFill="#242b8f" textOverrun="WORD_ELLIPSIS" wrapText="true">
+      <Label fx:id="login_welcome" layoutX="262.0" layoutY="62.0" prefHeight="181.0" prefWidth="274.0" styleClass="login_container" stylesheets="@../Styles/login.css" text="Welcome to Home Maintenance Tracker" textAlignment="CENTER" textFill="#242b8f" textOverrun="WORD_ELLIPSIS" wrapText="true">
          <font>
             <Font name="Stencil" size="18.0" />
          </font>
@@ -28,11 +29,8 @@
             <InnerShadow />
          </effect>
       </Label>
-      <AnchorPane layoutX="262.0" layoutY="29.0" prefHeight="168.0" prefWidth="200.0" styleClass="anchor-pane" stylesheets="@../Styles/login.css">
-         <children>
-            <TextField layoutX="26.0" layoutY="49.0" promptText="username/password" />
-            <PasswordField layoutX="26.0" layoutY="84.0" promptText="password" />
-         </children>
-      </AnchorPane>
+      <TextField layoutX="280.0" layoutY="245.0" prefHeight="39.0" prefWidth="237.0" promptText="username/password" />
+      <PasswordField layoutX="280.0" layoutY="310.0" prefHeight="39.0" prefWidth="237.0" promptText="password" />
+      <Text fx:id="login_text" layoutX="365.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="login_text" text="Login" wrappingWidth="83.13671875" />
    </children>
 </AnchorPane>
