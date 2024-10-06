@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logout screen</title>
+
+    <style>
+
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #44bd9f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        /* Style for logout container */
+        .logout-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        /* Style for message */
+        .logout-container h2 {
+            margin-bottom: 20px;
+        }
+        /* Style for button */
+        .logout-container button {
+            padding: 10px;
+            width: 100%;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* Hover effect for button */
+        .logout-container button:hover {
+            background-color: #4cae4c;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="logout-container">
+        <h2>You have been logged out.</h2>
+        <button onclick="window.location.href='login.html'">Return to Login</button> <!-- redirects to login screen -->
+        <h3>See you next time!</h3>
+    </div>
+</body>
+</html>
