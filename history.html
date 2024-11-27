@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="assets/stylesheets/history.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <title>Maintenance History</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Maintenance History</h1>
+            <form id="record-form">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="number" id="quantity" placeholder="Quantity" required>
+                <input type="text" id="email" placeholder="Email" required>
+                <button type="submit">Add Record</button>
+                <input type="hidden" id="edit-index" value="-1">
+            </form>
+        </div>
+        <div class="right">
+            <h2>Records</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Email</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="record-list"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="scripts/history.js"></script>
+</body>
+</html>
