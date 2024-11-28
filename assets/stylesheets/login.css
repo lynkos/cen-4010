@@ -76,18 +76,18 @@ after { clear: both; }
   background: #16aa56;
 } */
 
-body{
+body {
 	margin: 0;
 	color: #6a6f8c;
 	background: #c8c8c8;
 	font: 600 16px/18px 'Open Sans',sans-serif;
 }
 
-*, :after, :before{
+*, :after, :before {
   box-sizing: border-box;
 }
 
-.clearfix:after, .clearfix:before{
+.clearfix:after, .clearfix:before {
   content: '';
   display: table;
 }
