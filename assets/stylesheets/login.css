@@ -108,21 +108,18 @@ a {
 	max-width: 525px;
 	min-height: 670px;
 	position: relative;
-  background-color: #aaa;
-	box-shadow: 0 12px 15px 0 rgba(0,0,0,.24), 0 17px 50px 0 rgba(0,0,0,.19);
 }
 
 .login-html {
 	width: 100%;
-	height: 100%;
 	position: absolute;
-	padding: 90px 70px 50px 70px;
+	padding: 90px 70px 120px 70px;
 	background: rgba(40,57,101,.9);
+	box-shadow: 0 12px 15px 0 rgba(0,0,0,.24), 0 17px 50px 0 rgba(0,0,0,.19);
 }
 
 .login-html .login-htm,
 .login-html .register-htm {
-	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -130,6 +127,14 @@ a {
 	transform: rotateY(180deg);
 	backface-visibility: hidden;
 	transition: all .4s linear;
+}
+
+.login-html .login-htm {
+	top: 60px;
+}
+
+.login-html .register-htm {
+	top: 0;
 }
 
 .login-html .login,
