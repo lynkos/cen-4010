@@ -5,14 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Todo App</title>
+  <title>Home</title>
 
-  <link rel="stylesheet" href="assets/stylesheets/style.css">
+  <link href="assets/stylesheets/style.css" rel="stylesheet">
+  <link href="assets/stylesheets/index.css" rel="stylesheet">
 </head>
 
 <body>
-  <div id="root"></div>
-
-  <script src="scripts/mvc.js"></script>
+  <div class="admin">
+    <header class="admin__header">
+        <a href="#" class="logo">
+            <h1>Nido</h1>
+        </a>
+        <div class="toolbar">
+            <div class="toolbar__left">
+                <!-- <button class="btn btn--primary">Add content</button> -->
+            </div>
+            <div class="toolbar__right">
+              <a href="#" class="btn btn--primary">Shopping Cart</a>
+              <a href="#" class="btn btn--primary">User Profile</a>
+              <a href="#" class="btn btn--primary logout">Log Out</a>
+            </div>
+        </div>
+    </header>
+    <nav class="admin__nav">
+        <ul class="menu">
+            <li class="menu__title">Dashboard</li>
+            <li class="menu__item">
+                <a class="menu__link is-active" href="#">Home</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="#">Maintenance History</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="#">Room Customization</a>
+            </li>
+            <li class="menu__item">
+                <a class="menu__link" href="#">Settings</a>
+            </li>
+        </ul>
+    </nav>
+    <main class="admin__main">
+        <div class="dashboard">
+          <div id="root"></div>
+        </div>
+    </main>
+</div>
+<script src="scripts/index.js"></script>   
 </body>
 </html>

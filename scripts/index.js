@@ -63,13 +63,13 @@ class Model {
       this.form = this.createElement('form')
       this.input = this.createElement('input')
       this.input.type = 'text'
-      this.input.placeholder = 'Add todo'
+      this.input.placeholder = 'Add Task'
       this.input.name = 'todo'
       this.submitButton = this.createElement('button')
       this.submitButton.textContent = 'Submit'
       this.form.append(this.input, this.submitButton)
       this.title = this.createElement('h1')
-      this.title.textContent = 'Todos'
+      this.title.textContent = 'Tasks'
       this.todoList = this.createElement('ul', 'todo-list')
       this.app.append(this.title, this.form, this.todoList)
   
