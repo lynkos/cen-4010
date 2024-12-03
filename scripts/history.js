@@ -4,6 +4,7 @@ const quantityInput = document.getElementById('quantity');
 const dateInput = document.getElementById('date');
 const recordList = document.getElementById('record-list');
 const editIndexInput = document.getElementById('edit-index');
+const submitButton = document.getElementById('submit');
 
 // Initialize records from local storage
 let records = JSON.parse(localStorage.getItem('records')) || [];
@@ -26,7 +27,7 @@ function displayRecords() {
                     <td>${record.date}</td>
                     <td><button onclick="editRecord(${index})">Edit</button></td>
                     <td class="deleteButton"><button onclick="deleteRecord(${index})">Delete</button></td>
-                `;
+                    `;
       recordList.appendChild(row);
     });
   }
@@ -54,6 +55,7 @@ recordForm.addEventListener('submit', function (e) {
     nameInput.value = '';
     quantityInput.value = '';
     dateInput.value = '';
+    submitButton.textContent = 'Add Record';
     displayRecords();
   }
 });
@@ -65,6 +67,7 @@ function editRecord(index) {
   quantityInput.value = recordToEdit.quantity;
   dateInput.value = recordToEdit.date;
   editIndexInput.value = index;
+  submitButton.textContent = 'Update Record';
 }
 
 // Delete a record
