@@ -1,44 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link rel="stylesheet" href="assets/stylesheets/history.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Maintenance History</title>
 
-  <title>Maintenance History</title>
-</head>
+    <link href="assets/stylesheets/style.css" rel="stylesheet">
+    <link href="assets/stylesheets/history.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
 
-<body>
-    <div class="container">
-        <div class="left">
-            <h1>Maintenance History</h1>
-            <form id="record-form">
-                <input type="text" id="name" placeholder="Name" required>
-                <input type="number" id="quantity" placeholder="Quantity" required>
-                <input type="date" id="date" placeholder="Date" required>
-                <button type="submit">Add Record</button>
-                <input type="hidden" id="edit-index" value="-1">
-            </form>
+  <body>
+    <div class="admin">
+      <header class="admin__header">
+        <a href="#" class="logo"><h1>Nido</h1></a>
+        <div class="toolbar">
+          <div class="toolbar__left"><!-- <button class="btn"></button> --></div>
+          <div class="toolbar__right">
+            <a href="cart.html" class="btn"><i class="fa fa-shopping-cart"></i></a>
+            <a href="#" class="btn"><i class="fa fa-user"></i></a>
+            <a href="#" class="btn logout"><i class="fa fa-sign-out"></i></a>
+          </div>
         </div>
-        <div class="right">
-            <h2>Records</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Date</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody id="record-list"></tbody>
-            </table>
+      </header>
+
+      <nav class="admin__nav">
+        <ul class="menu">
+          <li class="menu__title">Dashboard</li>
+          <li class="menu__item"><a class="menu__link" href="index.html"><i class="fa fa-home"></i> Home</a></li>
+          <li class="menu__item"><a class="menu__link is-active" href="history.html"><i class="fa fa-history"></i> Maintenance History</a></li>
+          <li class="menu__item"><a class="menu__link" href="#"><i class="fa fa-paint-brush"></i> Room Customization</a></li>
+          <li class="menu__item"><a class="menu__link" href="#"><i class="fa fa-gear"></i> Settings</a></li>
+        </ul>
+      </nav>
+
+      <main class="admin__main">
+        <div class="dashboard">
+            <div class="container">
+                <div class="left">
+                    <h2>Maintenance History</h2>
+                    <form id="record-form">
+                        <input type="text" id="name" placeholder="Name" required>
+                        <input type="number" id="quantity" placeholder="Quantity" required>
+                        <input type="date" id="date" placeholder="Date" required>
+                        <button type="submit" id="submit">Add Record</button>
+                        <input type="hidden" id="edit-index" value="-1">
+                    </form>
+                </div>
+                <div class="right">
+                    <h2>Records</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Date</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="record-list"></tbody>
+                    </table>
+                </div>
+            </div>        
         </div>
+      </main>
     </div>
     <script src="scripts/history.js"></script>
-</body>
+  </body>
 </html>
