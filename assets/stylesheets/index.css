@@ -26,6 +26,10 @@ body {
   overflow-x: hidden;
 }
 
+h1 {
+  text-align: center;
+}
+
 #root {
   max-width: 450px;
   margin: 2rem auto;
@@ -38,7 +42,7 @@ body {
   display: grid;
   height: 100vh;
   grid-template-rows: 60px 1fr 0;
-  grid-template-columns: 225px 1fr;
+  grid-template-columns: 240px 1fr;
   grid-template-areas: "header header" "nav main";
 }
 
@@ -53,7 +57,7 @@ body {
 }
 
 .admin__nav {
-  flex: 0 0 225px;
+  flex: 0 0 240px;
   grid-area: nav;
   background-color: #313541;
 }
@@ -62,8 +66,7 @@ body {
   flex: 1;
   grid-area: main;
   padding: var(--spacing);
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
   background-color: var(--bg-color);
 }
@@ -84,9 +87,13 @@ img {
   height: auto;
 }
 
+i {
+  color: white;
+}
+
 .logo {
   display: flex;
-  flex: 0 0 225px;
+  flex: 0 0 240px;
   height: 60px;
   justify-content: center;
   align-items: center;
@@ -112,6 +119,11 @@ img {
 .menu {
   list-style-type: none;
   padding: 0;
+}
+
+.menu i {
+  color: #76808f;
+  padding-right: 3px;
 }
 
 .menu__title {
@@ -144,6 +156,10 @@ img {
   border-left: 3px solid var(--bcn-orange);
 }
 
+.menu__link.is-active i {
+  color: #fff;
+}
+
 .menu__link:hover, .menu__link:focus {
   color: currentcolor;
   background-color: var(--bcn-orange-light);
@@ -155,9 +171,6 @@ img {
   border: 0;
   padding: 0.5rem 1rem;
   white-space: nowrap;
-}
-
-.btn--primary {
   color: #fff;
   background-color: #56bf89;
 }

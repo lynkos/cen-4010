@@ -134,6 +134,7 @@ class Model {
   
           const deleteButton = this.createElement('button', 'delete')
           deleteButton.textContent = 'Delete'
+          deleteButton.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
           li.append(checkbox, span, deleteButton)
   
           // Append nodes
