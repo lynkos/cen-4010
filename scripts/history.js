@@ -9,13 +9,6 @@ const editIndexInput = document.getElementById('edit-index');
 let records = JSON.parse(localStorage.getItem('records')) || [];
 console.log(records.length);
 
-// Function to check for duplicate names
-function isDuplicateName(name) {
-  return records.some(
-    (record) => record.name.toLowerCase() === name.toLowerCase()
-  );
-}
-
 // Display records
 function displayRecords() {
   recordList.innerHTML = '';
@@ -48,11 +41,6 @@ recordForm.addEventListener('submit', function (e) {
   const editIndex = parseInt(editIndexInput.value);
 
   if (name && quantity && date) {
-    if (isDuplicateName(name) && editIndex === -1) {
-      alert('Student already exists.');
-      return;
-    }
-
     if (editIndex === -1) {
       // Add a new record
       records.push({ name, quantity, date });
