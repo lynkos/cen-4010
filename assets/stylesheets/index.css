@@ -165,6 +165,10 @@ i {
   background-color: var(--bcn-orange-light);
 }
 
+.menu__link:hover i, .menu__link:focus i {
+  color: currentcolor;
+}
+
 .btn {
   display: inline-block;
   border-radius: 5em;
