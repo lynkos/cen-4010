@@ -1,7 +1,7 @@
 const recordForm = document.getElementById('record-form');
 const nameInput = document.getElementById('name');
 const quantityInput = document.getElementById('quantity');
-const emailInput = document.getElementById('email');
+const dateInput = document.getElementById('date');
 const recordList = document.getElementById('record-list');
 const editIndexInput = document.getElementById('edit-index');
 
@@ -10,9 +10,9 @@ let records = JSON.parse(localStorage.getItem('records')) || [];
 console.log(records.length);
 
 // Function to check for duplicate names
-function isDuplicateName(email) {
+function isDuplicateName(name) {
   return records.some(
-    (record) => record.email.toLowerCase() === email.toLowerCase()
+    (record) => record.name.toLowerCase() === name.toLowerCase()
   );
 }
 
@@ -30,7 +30,7 @@ function displayRecords() {
       row.innerHTML = `
                     <td>${record.name}</td>
                     <td>${record.quantity}</td>
-                    <td>${record.email}</td>
+                    <td>${record.date}</td>
                     <td><button onclick="editRecord(${index})">Edit</button></td>
                     <td class="deleteButton"><button onclick="deleteRecord(${index})">Delete</button></td>
                 `;
@@ -44,28 +44,28 @@ recordForm.addEventListener('submit', function (e) {
   e.preventDefault();
   const name = nameInput.value;
   const quantity = quantityInput.value;
-  const email = emailInput.value;
+  const date = dateInput.value;
   const editIndex = parseInt(editIndexInput.value);
 
-  if (name && quantity && email) {
-    if (isDuplicateName(email) && editIndex === -1) {
+  if (name && quantity && date) {
+    if (isDuplicateName(name) && editIndex === -1) {
       alert('Student already exists.');
       return;
     }
 
     if (editIndex === -1) {
       // Add a new record
-      records.push({ name, quantity, email });
+      records.push({ name, quantity, date });
     } else {
       // Update an existing record
-      records[editIndex] = { name, quantity, email };
+      records[editIndex] = { name, quantity, date };
       editIndexInput.value = -1;
     }
 
     localStorage.setItem('records', JSON.stringify(records));
     nameInput.value = '';
     quantityInput.value = '';
-    emailInput.value = '';
+    dateInput.value = '';
     displayRecords();
   }
 });
@@ -75,7 +75,7 @@ function editRecord(index) {
   const recordToEdit = records[index];
   nameInput.value = recordToEdit.name;
   quantityInput.value = recordToEdit.quantity;
-  emailInput.value = recordToEdit.email;
+  dateInput.value = recordToEdit.date;
   editIndexInput.value = index;
 }
 
