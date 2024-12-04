@@ -1,8 +1,8 @@
 :root {
     --bg-color: #e5e5e5;
-    --bcn-orange: #f16a2d;
-    --bcn-orange-light: #f9ae56;
-    --bcn-orange-dark: #d96129;
+    --bcn-orange: #44bd9f;
+    --bcn-orange-light: #a6dfd0;
+    --bcn-orange-dark: #44bd9f;
     --black: #333;
     --white: #f5f5f5;
     --text-color: #555;
@@ -124,7 +124,7 @@
   }
   
   .menu i {
-    color: #76808f;
+    color: #186b56;
     font-size: inherit;
     margin: 0;
   }
