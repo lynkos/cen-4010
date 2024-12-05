@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    margin-top: 70px;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #313541;
+    padding: 10px 20px;
+  }
+  
+  .navbar .btn-primary {
+    background-color: #44bd9f;
+    border: none;
+    margin-right: 10px;
+  }
+  
+  .navbar .btn-danger {
+    background-color: #f1364c;
+    border: none;
+  }
+  
+  /* Product Card Styles */
+  .card {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .card img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .add-to-cart {
+    background-color: #44bd9f;
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #186b56;
+    transform: scale(1.05);
+  }
+  
+  /* Modal Styling */
+  .modal-header {
+    background-color: #313541;
+    color: white;
+  }
+  
+  .modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+  }
+  
+  .modal-footer .btn-primary {
+    background-color: #44bd9f;
+    border: none;
+  }
+  
+  /* Cart pop-up*/
+  .show-cart {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .show-cart th,
+  .show-cart td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .show-cart th {
+    background-color: #44bd9f;
+    color: white;
+  }
+  
+  .total-cart {
+    font-weight: bold;
+    color: #44bd9f;
+  }
+  
+  /* Buttons */
+  .btn {
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    opacity: 0.85;
+  }
+  
