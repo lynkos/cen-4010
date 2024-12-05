@@ -170,13 +170,14 @@ function displayCart() {
 
   for(var i in cartArray) {
     output += "<tr>"
-      + "<td style='vertical-align: middle;'>" + cartArray[i].name.replaceAll("_", " ") + "</td>" 
-      + "<td style='vertical-align: middle;'><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + "><i class='fas fa-minus' aria-hidden='true'></i></button>"
-      + "<input type='number' min='0' style='text-align: center;' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
-      + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + "><i class='fas fa-plus' aria-hidden='true'></i></button></div></td>"
-      + "<td style='vertical-align: middle;'><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + "><i class='fas fa-x' aria-hidden='true'></i></button></td>"
+      + "<td>" + cartArray[i].name + "</td>" 
+      + "<td>(" + cartArray[i].price + ")</td>"
+      + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
+      + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
+      + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
+      + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
       + " = " 
-      + "<td style='vertical-align: middle;'> $" + cartArray[i].total + "</td>";
+      + "<td>" + cartArray[i].total + "</td>" 
       +  "</tr>";
   }
 
@@ -186,28 +187,28 @@ function displayCart() {
 }
 
 // Delete item button
-$('.show-cart').on("click", ".delete-item", function() {
+$('.show-cart').on("click", ".delete-item", function(event) {
   var name = $(this).data('name')
   shoppingCart.removeItemFromCartAll(name);
   displayCart();
 })
 
 // -1
-$('.show-cart').on("click", ".minus-item", function() {
+$('.show-cart').on("click", ".minus-item", function(event) {
   var name = $(this).data('name')
   shoppingCart.removeItemFromCart(name);
   displayCart();
 })
 
 // +1
-$('.show-cart').on("click", ".plus-item", function() {
+$('.show-cart').on("click", ".plus-item", function(event) {
   var name = $(this).data('name')
   shoppingCart.addItemToCart(name);
   displayCart();
 })
 
 // Item count input
-$('.show-cart').on("change", ".item-count", function() {
+$('.show-cart').on("change", ".item-count", function(event) {
     var name = $(this).data('name');
     var count = Number($(this).val());
   shoppingCart.setCountForItem(name, count);
