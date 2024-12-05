@@ -29,7 +29,7 @@ var shoppingCart = (function() {
   }
 
   // =============================
-  // Public methods and propeties
+  // Public methods and properties
   // =============================
   var obj = {};
   

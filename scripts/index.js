@@ -3,6 +3,50 @@
  *
  * Manages the data of the application.
  */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const currentUser = localStorage.getItem("nido_current_user");
+  const userBtn = document.getElementById("user-btn");
+  const userIcon = userBtn.querySelector("i");
+
+  if (currentUser) {
+    // Change icon to indicate user is logged in
+    userIcon.classList.remove("fa-user");
+    userIcon.classList.add("fa-user-check");
+
+    // Change the onclick to something else, e.g., a profile page
+    userBtn.onclick = () => {
+      // If you have a profile page or dashboard, redirect there
+      // Otherwise, just remove the onclick to prevent going to login again
+      window.location.href = "./HTML/profile.html";
+    };
+
+    // Optional: Show a welcome message on the page
+    const rootDiv = document.getElementById("root");
+    if (rootDiv) {
+      rootDiv.textContent = `Good to have you back, ${currentUser}!`;
+    }
+  } else {
+    // User not logged in
+    // The user-btn still points to login.html by default (as set in the HTML)
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const currentUser = localStorage.getItem("nido_current_user");
+
+  if (currentUser) {
+    // User is logged in
+    const welcomeDiv = document.getElementById("welcome-message");
+    if (welcomeDiv) {
+      welcomeDiv.textContent = `Welcome to your dashboard, ${currentUser}`;
+    }
+  } else {
+    // User not logged in, no message needed or show a generic message
+  }
+});
+
+
 class Model {
     constructor() {
       this.todos = JSON.parse(localStorage.getItem('todos')) || []
