@@ -87,3 +87,6 @@ input[type="checkbox"] { /*change checkbox color*/
   height: 20px;
   accent-color: #186b56; 
 }
+#tasks-container {
+  display: none; /* Hidden by default */
+}

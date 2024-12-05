@@ -15,85 +15,128 @@ function register() {
   const username = document.getElementById("user").value.trim();
   const password = document.getElementById("pw").value.trim();
 
-  console.log("Register button clicked with the following inputs:", { name, email, username, password });
-
   // Validate fields
   if (!name || !email || !username || !password) {
-    console.log("Registration failed: Missing required fields");
     alert("All fields are required.");
     return;
   }
 
   // Get existing users
   const users = JSON.parse(localStorage.getItem(USERS_KEY)) || {};
-  console.log("Existing users before registration:", users);
-
+  
   // Check if username already exists
   if (users[username]) {
-    console.log(`Registration failed: Username "${username}" already exists.`);
     alert("Username already exists. Please choose another.");
     return;
   }
 
   // Save new user
-  users[username] = {
-    name,
-    email,
-    password
-  };
+  users[username] = { name, email, password};
   localStorage.setItem(USERS_KEY, JSON.stringify(users));
-  
-  console.log(`User "${username}" registered successfully. Updated users:`, users);
   alert(`Account created successfully for ${name}!`);
 
-  // Clear form fields
-  document.getElementById("name").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("user").value = "";
-  document.getElementById("pw").value = "";
+  sessionStorage.setItem("nido_current_user", username);
+  window.location.href = "index.html";
 
   // Log final state of users after registration
   logCurrentUsers();
 }
 
 // Validate user login
-function validate() {
-  console.log("Validate function called for login");
+function validate(event) {
 
+  if (event) event.preventDefault();
+  
   const username = document.getElementById("userName").value.trim();
   const password = document.getElementById("userPw").value.trim();
 
-  console.log("Login attempted with:", { username, password });
-
   // Get users from local storage
   const users = JSON.parse(localStorage.getItem(USERS_KEY)) || {};
-  console.log("Current users at login:", users);
 
   if (users[username] && users[username].password === password) {
-    console.log(`Login success for user: "${username}"`);
-    alert(`Welcome back, ${username}!`);
+    
+    // Set the current user in sessionStorage
+    sessionStorage.setItem("nido_current_user", username);
 
-    // Set the current user in localStorage if you want session persistence
-    localStorage.setItem("nido_current_user", username);
+    window.location.href = "index.html";
 
-    // Redirect the user to the target page
-    // Update the filename below if your new page is named differently
-    window.location.href = "../index.html";
   } else {
-    console.log(`Login failed for username: "${username}" with given password.`);
     alert("Invalid username or password.");
   }
-
 
   // Clear login fields
   document.getElementById("userName").value = "";
   document.getElementById("userPw").value = "";
 }
 
-// Clear login fields after attempt
-document.getElementById("userName").value = "";
-document.getElementById("userPw").value = "";
+// Add event listener for the Enter key
+document.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    // Determine which tab is active (Login or Register)
+    if (document.getElementById("tab-1").checked) {
+      validate();
+    } else if (document.getElementById("tab-2").checked) {
+      register();
+    }
+  }
+});
 
-// Attach functions to global scope
+function initializeRoomCustomization() {
+  if (!localStorage.getItem("bedrooms")) {
+      localStorage.setItem("bedrooms", "0"); // Default bedrooms to 0
+  }
+  if (!localStorage.getItem("bathrooms")) {
+      localStorage.setItem("bathrooms", "0"); // Default bathrooms to 0
+  }
+}
+
+// Call this function when a new user logs in
+function handleLogin(username) {
+  sessionStorage.setItem("nido_current_user", username); // Set the current user
+  initializeRoomCustomization(); // Initialize room customization
+  window.location.href = "index.html"; // Redirect to the dashboard
+}
+
+
+
+function updateAuthButton() {
+  const currentUser = sessionStorage.getItem("nido_current_user");
+  const authButton = document.getElementById("auth-button");
+
+  if (currentUser) {
+    authButton.textContent = "Logout";
+    authButton.href = "#";
+    authButton.onclick = handleAuth;
+  
+   } else {
+    authButton.textContent = "Login";
+    authButton.href = "login.html";
+    authButton.onclick = null;
+   }
+ }
+
+ function handleAuth() {
+
+  const currentUser = sessionStorage.getItem("nido_current_user");
+
+  if (currentUser) {
+  //Remove user from local memory
+  sessionStorage.removeItem("nido_current_user");
+  window.location.href = "logout.html";
+  
+      }
+ }
+
+ function handleLogout() {
+  sessionStorage.removeItem("nido_current_user");
+  localStorage.removeItem("bedrooms"); 
+  localStorage.removeItem("bathrooms"); 
+  window.location.href = "login.html"; 
+}
+
+
+window.onload = function() {
+  updateAuthButton();
+};
 window.register = register;
 window.validate = validate;

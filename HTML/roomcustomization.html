@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Customization</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="../assets/stylesheets/roomcustomization.css">
+</head>
+<body>
+    <div id="root">
+        <div class="customization-container">
+            <h1>Room Customization</h1>
+            <div class="room-field">
+                <strong>Bedrooms:</strong>
+                <div class="counter-container">
+                    <button class="counter-button" data-action="decrease" data-type="bedrooms">-</button>
+                    <span class="counter-value" id="bedrooms-count">0</span>
+                    <button class="counter-button" data-action="increase" data-type="bedrooms">+</button>
+                </div>
+            </div>
+            <div class="room-field">
+                <strong>Bathrooms:</strong>
+                <div class="counter-container">
+                    <button class="counter-button" data-action="decrease" data-type="bathrooms">-</button>
+                    <span class="counter-value" id="bathrooms-count">0</span>
+                    <button class="counter-button" data-action="increase" data-type="bathrooms">+</button>
+                </div>
+            </div>
+            <button class="save-button">Save Configuration</button>
+        </div>
+    </div>
+
+    <script src="../scripts/roomcustomization.js"></script>
+</body>
+</html>

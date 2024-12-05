@@ -4,48 +4,79 @@
  * Manages the data of the application.
  */
 
+
 document.addEventListener("DOMContentLoaded", () => {
-  const currentUser = localStorage.getItem("nido_current_user");
-  const userBtn = document.getElementById("user-btn");
-  const userIcon = userBtn.querySelector("i");
+ 
+  const currentUser = sessionStorage.getItem("nido_current_user");
+  const welcomeMessage = document.querySelector("#welcome-message");
 
-  if (currentUser) {
-    // Change icon to indicate user is logged in
-    userIcon.classList.remove("fa-user");
-    userIcon.classList.add("fa-user-check");
+  if (welcomeMessage) {
+    if (currentUser) {
+      welcomeMessage.textContent = `Welcome to Nido, ${currentUser}!`; // Personalized message
+    } else {
+      welcomeMessage.textContent = "Welcome to Nido!"; // Default message
+    }
+  } else {
+    console.error("Welcome message element not found in the DOM.");
+  }
+});
 
-    // Change the onclick to something else, e.g., a profile page
-    userBtn.onclick = () => {
-      // If you have a profile page or dashboard, redirect there
-      // Otherwise, just remove the onclick to prevent going to login again
-      window.location.href = "./HTML/profile.html";
+document.addEventListener("DOMContentLoaded", () => {
+  const currentUser = sessionStorage.getItem("nido_current_user");
+  const tasksContainer = document.querySelector("#tasks-container");
+
+  if (!currentUser) {
+    // Hide the tasks container if not logged in
+    if (tasksContainer) {
+      tasksContainer.style.display = "none";
+    }
+    return;
+  }
+
+  // Show the tasks container if logged in
+  if (tasksContainer) {
+    tasksContainer.style.display = "block";
+  }
+
+  // Check if the tasks section is already initialized
+  if (!tasksContainer.dataset.initialized) {
+    const app = new Controller(new Model(), new View());
+    tasksContainer.dataset.initialized = "true"; // Mark as initialized
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const currentUser = sessionStorage.getItem("nido_current_user");
+  const cartButton = document.getElementById("cart-button");
+
+  if (!currentUser) {
+    // Hide the cart button or disable it
+    cartButton.href = "#"; // Remove cart functionality
+    cartButton.onclick = () => {
+      alert("Please log in to access the shopping cart.");
     };
-
-    // Optional: Show a welcome message on the page
-    const rootDiv = document.getElementById("root");
-    if (rootDiv) {
-      rootDiv.textContent = `Good to have you back, ${currentUser}!`;
-    }
-  } else {
-    // User not logged in
-    // The user-btn still points to login.html by default (as set in the HTML)
+    cartButton.style.cursor = "not-allowed"; // Change cursor to indicate unavailability
+    cartButton.style.opacity = "0.5"; // Optional: visually indicate it's disabled
   }
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  const currentUser = localStorage.getItem("nido_current_user");
+  const currentUser = sessionStorage.getItem("nido_current_user");
 
-  if (currentUser) {
-    // User is logged in
-    const welcomeDiv = document.getElementById("welcome-message");
-    if (welcomeDiv) {
-      welcomeDiv.textContent = `Welcome to your dashboard, ${currentUser}`;
-    }
-  } else {
-    // User not logged in, no message needed or show a generic message
+  const maintenanceLink = document.querySelector('.menu__link[href="history.html"]');
+  const customizationLink = document.querySelector('.menu__link[href="roomcustomization.html"]');
+
+  if (!currentUser) {
+    maintenanceLink.classList.add("disabled");
+    maintenanceLink.href = "#";
+    customizationLink.classList.add("disabled");
+    customizationLink.href = "#";
+
+    maintenanceLink.onclick = () => alert("Please log in to access Maintenance History.");
+    customizationLink.onclick = () => alert("Please log in to access Room Customization.");
   }
-});
-
+}); 
 
 class Model {
     constructor() {
@@ -95,6 +126,33 @@ class Model {
       this._commit(this.todos)
     }
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const roomConfigurationContainer = document.getElementById('room-configuration');
+    const currentUser = sessionStorage.getItem("nido_current_user");
+
+    if (roomConfigurationContainer) {
+      if (currentUser) {
+          // If a user is logged in, display Room Configuration
+          roomConfigurationContainer.style.display = "block";
+
+          // Retrieve room configuration from localStorage
+          const bedrooms = localStorage.getItem("bedrooms") || 0;
+          const bathrooms = localStorage.getItem("bathrooms") || 0;
+
+          // Populate the Room Configuration
+          roomConfigurationContainer.innerHTML = `
+              <h2>Saved Room Configuration</h2>
+              <p>Bedrooms: ${bedrooms}</p>
+              <p>Bathrooms: ${bathrooms}</p>
+          `;
+      } else {
+          // If no user is logged in, hide Room Configuration
+          roomConfigurationContainer.style.display = "none";
+      }
+  }
+});
+
   
   /**
    * @class View
@@ -103,141 +161,105 @@ class Model {
    */
   class View {
     constructor() {
-      this.app = this.getElement('#root')
-      this.form = this.createElement('form')
-      this.input = this.createElement('input')
-      this.input.type = 'text'
-      this.input.placeholder = 'Add Task'
-      this.input.name = 'todo'
-      this.submitButton = this.createElement('button')
-      this.submitButton.textContent = 'Submit'
-      this.form.append(this.input, this.submitButton)
-      this.title = this.createElement('h1')
-      this.title.textContent = 'Tasks'
-      this.todoList = this.createElement('ul', 'todo-list')
-      this.app.append(this.title, this.form, this.todoList)
+      this.app = this.getElement("#root");
   
-      this._temporaryTodoText = ''
-      this._initLocalListeners()
+      // Clear existing tasks in the container
+      this.app.innerHTML = "";
+  
+      this.form = this.createElement("form");
+      this.input = this.createElement("input");
+      this.input.type = "text";
+      this.input.placeholder = "Add Task";
+      this.input.name = "todo";
+  
+      this.submitButton = this.createElement("button");
+      this.submitButton.textContent = "Submit";
+      this.form.append(this.input, this.submitButton);
+  
+      this.title = this.createElement("h1");
+      this.title.textContent = "Tasks";
+  
+      this.todoList = this.createElement("ul", "todo-list");
+      this.app.append(this.title, this.form, this.todoList);
+  
+      this._temporaryTodoText = "";
+      this._initLocalListeners();
     }
   
     get _todoText() {
-      return this.input.value
+      return this.input.value;
     }
   
     _resetInput() {
-      this.input.value = ''
+      this.input.value = "";
     }
   
     createElement(tag, className) {
-      const element = document.createElement(tag)
-  
-      if (className) element.classList.add(className)
-  
-      return element
+      const element = document.createElement(tag);
+      if (className) element.classList.add(className);
+      return element;
     }
   
     getElement(selector) {
-      const element = document.querySelector(selector)
-  
-      return element
+      const element = document.querySelector(selector);
+      return element;
     }
   
     displayTodos(todos) {
-      // Delete all nodes
       while (this.todoList.firstChild) {
-        this.todoList.removeChild(this.todoList.firstChild)
+        this.todoList.removeChild(this.todoList.firstChild);
       }
   
-      // Show default message
       if (todos.length === 0) {
-        const p = this.createElement('p')
-        p.textContent = 'Nothing to do! Add a task?'
-        this.todoList.append(p)
+        const p = this.createElement("p");
+        p.textContent = "Nothing to do! Add a task?";
+        this.todoList.append(p);
       } else {
-        // Create nodes
-        todos.forEach(todo => {
-          const li = this.createElement('li')
-          li.id = todo.id
+        todos.forEach((todo) => {
+          const li = this.createElement("li");
+          li.id = todo.id;
   
-          const checkbox = this.createElement('input')
-          checkbox.type = 'checkbox'
-          checkbox.checked = todo.complete
+          const checkbox = this.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.checked = todo.complete;
   
-          const span = this.createElement('span')
-          span.contentEditable = true
-          span.classList.add('editable')
+          const span = this.createElement("span");
+          span.contentEditable = true;
+          span.classList.add("editable");
   
           if (todo.complete) {
-            const strike = this.createElement('s')
-            strike.textContent = todo.text
-            span.append(strike)
+            const strike = this.createElement("s");
+            strike.textContent = todo.text;
+            span.append(strike);
           } else {
-            span.textContent = todo.text
+            span.textContent = todo.text;
           }
   
-          const deleteButton = this.createElement('button', 'delete')
-          deleteButton.textContent = 'Delete'
+          const deleteButton = this.createElement("button", "delete");
           deleteButton.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>';
-          li.append(checkbox, span, deleteButton)
+          li.append(checkbox, span, deleteButton);
   
-          // Append nodes
-          this.todoList.append(li)
-        })
+          this.todoList.append(li);
+        });
       }
-  
-      // Debugging
-      console.log(todos)
     }
   
     _initLocalListeners() {
-      this.todoList.addEventListener('input', event => {
-        if (event.target.className === 'editable') {
-          this._temporaryTodoText = event.target.innerText
+      this.todoList.addEventListener("input", (event) => {
+        if (event.target.className === "editable") {
+          this._temporaryTodoText = event.target.innerText;
         }
-      })
+      });
     }
   
     bindAddTodo(handler) {
-      this.form.addEventListener('submit', event => {
-        event.preventDefault()
-  
+      this.form.addEventListener("submit", (event) => {
+        event.preventDefault();
         if (this._todoText) {
-          handler(this._todoText)
-          this._resetInput()
+          handler(this._todoText);
+          this._resetInput();
         }
-      })
-    }
-  
-    bindDeleteTodo(handler) {
-      this.todoList.addEventListener('click', event => {
-        if (event.target.className === 'delete') {
-          const id = parseInt(event.target.parentElement.id)
-  
-          handler(id)
-        }
-      })
-    }
-  
-    bindEditTodo(handler) {
-      this.todoList.addEventListener('focusout', event => {
-        if (this._temporaryTodoText) {
-          const id = parseInt(event.target.parentElement.id)
-  
-          handler(id, this._temporaryTodoText)
-          this._temporaryTodoText = ''
-        }
-      })
-    }
-  
-    bindToggleTodo(handler) {
-      this.todoList.addEventListener('change', event => {
-        if (event.target.type === 'checkbox') {
-          const id = parseInt(event.target.parentElement.id)
-  
-          handler(id)
-        }
-      })
+      });
     }
   }
   
