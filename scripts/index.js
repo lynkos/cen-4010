@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     userBtn.onclick = () => {
       // If you have a profile page or dashboard, redirect there
       // Otherwise, just remove the onclick to prevent going to login again
-      window.location.href = "./HTML/profile.html";
+      window.location.href = "./profile.html";
     };
 
     // Optional: Show a welcome message on the page
