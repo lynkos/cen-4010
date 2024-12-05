@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Home</title>
+
+    <link href="../assets/stylesheets/style.css" rel="stylesheet">
+    <link href="../assets/stylesheets/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <div class="welcome" style="text-align: center; margin: 20px;">
+    <h2 id="welcome-message">Welcome to Nido!</h2>
+  </div>     
+
+  <body>
+    <div class="admin">
+      <header class="admin__header">
+        <a href="#" class="logo"><h1>Nido</h1></a>
+        <div class="toolbar">
+          <div class="toolbar__left"><!-- <button class="btn"></button> --></div>
+          <div class="toolbar__right">
+            <a id="cart-button" class="btn" href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+            <a id="auth-button" class="btn" href="login.html">Login</a>
+             <!---<a href="#" class="auth-button" onclick="handleAuth()">logout</button></a><i class="fa fa-sign-out"></i></a> -->
+          </div>
+        </div>
+      </header>
+
+      <nav class="admin__nav">
+        <ul class="menu">
+          <li class="menu__title">Dashboard</li>
+          <li class="menu__item"><a class="menu__link is-active" href="#"><i class="fa fa-home"></i> Home</a></li>
+          <li class="menu__item"><a class="menu__link" href="history.html"><i class="fa fa-history"></i> Maintenance History</a></li>
+          <li class="menu__item"><a class="menu__link" href="roomcustomization.html"><i class="fa fa-paint-brush"></i> Room Customization</a></li>
+          <li class="menu__item"><a class="menu__link" href="#"><i class="fa fa-gear"></i> Settings</a></li>
+        </ul>
+      </nav>
+
+      <main class="admin__main">
+        <div class="dashboard">
+          <div id="room-configuration" class="rounded-square">
+            <h2>Saved Room Configuration</h2>
+            <p>Bedrooms: 2</p>
+            <p>Bathrooms: 1</p>
+          </div>
+
+          <div id="tasks-container" style="display: none;">
+            <div id="root"></div>
+          </div>
+
+          <div id="root"></div>
+          <div id="login-message"></div>
+        </div>
+      </main>
+    </div>
+    <script src="../scripts/account.js"></script>
+    <script src="../scripts/index.js"></script>   
+  </body>
+</html>

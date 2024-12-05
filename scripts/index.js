@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", () => {
   const currentUser = sessionStorage.getItem("nido_current_user");
   const tasksContainer = document.querySelector("#tasks-container");
@@ -55,13 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cartButton.href = "#"; // Remove cart functionality
     cartButton.onclick = () => {
       alert("Please log in to access the shopping cart.");
-=======
-    // Change the onclick to something else, e.g., a profile page
-    userBtn.onclick = () => {
-      // If you have a profile page or dashboard, redirect there
-      // Otherwise, just remove the onclick to prevent going to login again
-      window.location.href = "./profile.html";
->>>>>>> b9b2d5856b34de1d4e8f50e4fb5b8ef6086a4e18
     };
     cartButton.style.cursor = "not-allowed"; // Change cursor to indicate unavailability
     cartButton.style.opacity = "0.5"; // Optional: visually indicate it's disabled
