@@ -73,6 +73,7 @@ button:hover {
 .deleteButton {
   text-align: center;
 }
+
 #yesBtn, #noBtn {
   cursor: pointer;
   font-size: 18px;
@@ -92,12 +93,4 @@ i {
   font-size: 20px;
   color: black;
   cursor: pointer;
-}
-
-#yesBtn:hover {
-  color: red;
-}
-
-#noBtn:hover {
-  color: green;
 }
