@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!currentUser) {
       
       alert("You must be logged in to access this page.");
-      window.location.href = "index.html";
+      window.location.href = "login.html";
     }
   });
    
