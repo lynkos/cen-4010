@@ -212,7 +212,7 @@
     white-space: nowrap;
     background-color: #56bf89;
   }
-  .auth-button {
+  .auth-button, .logout-button {
     display: inline-block;
     border-radius: 5em;
     border: 0;
