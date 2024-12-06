@@ -20,6 +20,11 @@
     font-size: 1rem;
     color: #444;
   }
+
+  a, a:hover, a:visited {
+    text-decoration: none;
+    color: var(--bcn-orange-light);
+  }
   
   body {
     height: 100%;
@@ -27,7 +32,7 @@
     font-family: Arial, sans-serif;
   }
   
-  h1 {
+  h1, h2 {
     text-align: center;
   }
   
