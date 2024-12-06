@@ -41,33 +41,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentUser = sessionStorage.getItem("nido_current_user");
   const cartButton = document.getElementById("cart-button");
 
+  if (cartButton) {
+    if (!currentUser) {
+      // Hide the cart button or disable it
+      cartButton.href = "#"; // Remove cart functionality
+      cartButton.onclick = () => {
+        alert("Please log in to access the shopping cart.");
+      };
+      cartButton.style.cursor = "not-allowed"; // Change cursor to indicate unavailability
+      cartButton.style.opacity = "0.5"; // Optional: visually indicate it's disabled
+    }
+  }
+
+  const maintenanceLink = document.querySelector('.menu__link[href="history.html"], .menu__link[href="HTML/history.html"]');
+  const customizationLink = document.querySelector('.menu__link[href="roomcustomization.html"], .menu__link[href="HTML/roomcustomization.html"]');
+
   if (!currentUser) {
-    // Hide the cart button or disable it
-    cartButton.href = "#"; // Remove cart functionality
-    cartButton.onclick = () => {
-      alert("Please log in to access the shopping cart.");
-    };
-    cartButton.style.cursor = "not-allowed"; // Change cursor to indicate unavailability
-    cartButton.style.opacity = "0.5"; // Optional: visually indicate it's disabled
+    if (maintenanceLink) {
+      maintenanceLink.classList.add("disabled");
+      maintenanceLink.href = "#";
+      maintenanceLink.style.cursor = "not-allowed"; // Change cursor to indicate unavailability
+      maintenanceLink.style.opacity = "0.5"; // Optional: visually indicate it's disabled
+      maintenanceLink.onclick = () => alert("Please log in to access Maintenance History.");
+    }
+
+    if (customizationLink) {
+      customizationLink.classList.add("disabled");
+      customizationLink.href = "#";
+      customizationLink.style.cursor = "not-allowed"; // Change cursor to indicate unavailability
+      customizationLink.style.opacity = "0.5"; // Optional: visually indicate it's disabled
+      customizationLink.onclick = () => alert("Please log in to access Room Customization.");
+    }
   }
 });
-
-document.addEventListener("DOMContentLoaded", () => {
-  const currentUser = sessionStorage.getItem("nido_current_user");
-
-  const maintenanceLink = document.querySelector('.menu__link[href="history.html"]');
-  const customizationLink = document.querySelector('.menu__link[href="roomcustomization.html"]');
-
-  if (!currentUser) {
-    maintenanceLink.classList.add("disabled");
-    maintenanceLink.href = "#";
-    customizationLink.classList.add("disabled");
-    customizationLink.href = "#";
-
-    maintenanceLink.onclick = () => alert("Please log in to access Maintenance History.");
-    customizationLink.onclick = () => alert("Please log in to access Room Customization.");
-  }
-}); 
 
   document.addEventListener('DOMContentLoaded', () => {
     const roomConfigurationContainer = document.getElementById('room-configuration');

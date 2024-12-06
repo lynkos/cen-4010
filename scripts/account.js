@@ -74,12 +74,10 @@ function validate(event) {
   const users = JSON.parse(localStorage.getItem(USERS_KEY)) || {};
 
   if (users[username] && users[username].password === password) {
-    
     // Set the current user in sessionStorage
     sessionStorage.setItem("nido_current_user", username);
 
     window.location.href = "index.html";
-
   } else {
     alert("Invalid username or password.");
   }
@@ -114,49 +112,65 @@ function initializeRoomCustomization() {
 function handleLogin(username) {
   sessionStorage.setItem("nido_current_user", username); // Set the current user
   initializeRoomCustomization(); // Initialize room customization
-  window.location.href = "index.html"; // Redirect to the dashboard
+  const currentPath = window.location.pathname;
+  if (currentPath.includes("/HTML/")) {
+    window.location.href = "index.html"; // Redirect to the dashboard
+  } else {
+    window.location.href = "./HTML/index.html"; // Redirect to the dashboard
+  }
 }
-
-
 
 function updateAuthButton() {
   const currentUser = sessionStorage.getItem("nido_current_user");
   const authButton = document.getElementById("auth-button");
 
-  if (currentUser) {
-    authButton.innerHTML = "<i class='fa fa-sign-out'></i> Logout";
-    authButton.href = "#";
-    authButton.onclick = handleAuth;
-  
-   } else {
-    authButton.innerHTML = "<i class='fa fa-sign-in'></i> Login";
-    authButton.href = "login.html";
-    authButton.onclick = null;
-   }
- }
+  if (authButton) {
+    if (currentUser) {
+      authButton.innerHTML = "<i class='fa fa-sign-out'></i> Logout";
+      authButton.href = "#";
+      authButton.onclick = handleAuth;
+    } else {
+      authButton.innerHTML = "<i class='fa fa-sign-in'></i> Login";
+      const currentPath = window.location.pathname;
+      if (currentPath.includes("/HTML/")) {
+        authButton.href = "login.html";
+      } else {
+        authButton.href = "./HTML/login.html";
+      }
+      authButton.onclick = null;
+    }
+  }
+}
 
- function handleAuth() {
-
+function handleAuth() {
   const currentUser = sessionStorage.getItem("nido_current_user");
 
   if (currentUser) {
-  //Remove user from local memory
-  sessionStorage.removeItem("nido_current_user");
-  window.location.href = "logout.html";
-  
-      }
- }
-
- function handleLogout() {
-  sessionStorage.removeItem("nido_current_user");
-  localStorage.removeItem("bedrooms"); 
-  localStorage.removeItem("bathrooms"); 
-  window.location.href = "login.html"; 
+    // Remove user from local memory
+    sessionStorage.removeItem("nido_current_user");
+    const currentPath = window.location.pathname;
+    if (currentPath.includes("/HTML/")) {
+      window.location.href = "logout.html";
+    } else {
+      window.location.href = "./HTML/logout.html";
+    }
+  }
 }
 
+function handleLogout() {
+  sessionStorage.removeItem("nido_current_user");
+  // localStorage.removeItem("bedrooms"); 
+  // localStorage.removeItem("bathrooms"); 
+  const currentPath = window.location.pathname;
+  if (currentPath.includes("/HTML/")) {
+    window.location.href = "login.html";
+  } else {
+    window.location.href = "./HTML/login.html";
+  }
+}
 
 window.onload = function() {
   updateAuthButton();
-};
+}
 window.register = register;
 window.validate = validate;
