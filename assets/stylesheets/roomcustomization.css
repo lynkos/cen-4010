@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(120deg, #2980b9, #8e44ad);
+    background: linear-gradient(120deg, #44bd9f, #186b56);
 }
 
 .customization-container {
@@ -41,7 +41,7 @@ h1 {
 
 .counter-button {
     padding: 8px 20px;
-    background: #2980b9;
+    background: #44bd9f;
     color: white;
     border: none;
     border-radius: 5px;
@@ -51,7 +51,7 @@ h1 {
 }
 
 .counter-button:hover {
-    background: #3498db;
+    background: #186b56;
 }
 
 .counter-value {
