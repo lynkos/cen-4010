@@ -21,6 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hide the tasks container if not logged in
     if (tasksContainer) {
       tasksContainer.style.display = "none";
+
+      alert("You must be logged in to access this page.");
+      window.location.href = "HTML/login.html";
     }
     return;
   }

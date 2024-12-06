@@ -1,17 +1,16 @@
-/**
- * @class Model
- * Manages the room configuration data
- */
 document.addEventListener("DOMContentLoaded", () => {
     const currentUser = sessionStorage.getItem("nido_current_user");
   
     if (!currentUser) {
-      
       alert("You must be logged in to access this page.");
       window.location.href = "login.html";
     }
   });
-   
+
+/**
+ * @class Model
+ * Manages the room configuration data
+ */
 class Model {
     constructor() {
         // Initialize room counts from localStorage or default to 0

@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const currentUser = sessionStorage.getItem("nido_current_user");
+  
+    if (!currentUser) {
+      alert("You must be logged in to access this page.");
+      window.location.href = "login.html";
+    }
+  });
+
 /**
  * @class Model
  * Manages the user profile data
