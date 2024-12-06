@@ -72,7 +72,7 @@
   .admin__main {
     flex: 1;
     grid-area: main;
-    padding: var(--spacing);
+    padding: 0 var(--spacing);
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     background-color: var(--bg-color);
