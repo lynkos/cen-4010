@@ -38,23 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const currentUser = sessionStorage.getItem("nido_current_user");
-  const cartButton = document.getElementById("cart-button");
   const maintenanceLink = document.querySelector('.menu__link[href="history.html"], .menu__link[href="HTML/history.html"]');
   const customizationLink = document.querySelector('.menu__link[href="roomcustomization.html"], .menu__link[href="HTML/roomcustomization.html"]');
   const cartLink = document.querySelector('.menu__link[href="cart.html"], .menu__link[href="HTML/cart.html"]');
   const profileLink = document.querySelector('.menu__link[href="userpage.html"], .menu__link[href="HTML/userpage.html"]');
 
   if (!currentUser) {
-    if (cartButton) {
-      // Hide the cart button or disable it
-      cartButton.href = "#"; // Remove cart functionality
-      cartButton.onclick = () => {
-        alert("Please log in to access the shopping cart.");
-      };
-      cartButton.style.cursor = "not-allowed"; // Change cursor to indicate unavailability
-      cartButton.style.opacity = "0.5"; // Optional: visually indicate it's disabled
-    }
-
     if (maintenanceLink) {
       maintenanceLink.classList.add("disabled");
       maintenanceLink.href = "#";
