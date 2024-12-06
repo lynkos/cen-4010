@@ -124,12 +124,12 @@ function updateAuthButton() {
   const authButton = document.getElementById("auth-button");
 
   if (currentUser) {
-    authButton.textContent = "Logout";
+    authButton.innerHTML = "<i class='fa fa-sign-out'></i> Logout";
     authButton.href = "#";
     authButton.onclick = handleAuth;
   
    } else {
-    authButton.textContent = "Login";
+    authButton.innerHTML = "<i class='fa fa-sign-in'></i> Login";
     authButton.href = "login.html";
     authButton.onclick = null;
    }
