@@ -100,7 +100,6 @@ input[type=number] {
   .show-cart td {
     padding: 10px;
     text-align: center;
-    border-bottom: 1px solid #ddd;
   }
   
   .show-cart th {

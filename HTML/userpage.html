@@ -6,34 +6,67 @@
     <title>User Profile</title>
     <link href="../assets/stylesheets/style.css" rel="stylesheet">
     <link href="../assets/stylesheets/userProfile.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <div id="root">
-        <div class="profile-container">
-            <div class="avatar-circle">
-                <span class="avatar-letter" id="avatar-letter"></span>
-            </div>
-            <h1>User Profile</h1>
-            <div class="profile-field">
-                <strong>Username:</strong> <span id="profile-username"></span>
-                <button class="edit-button" data-field="username">Edit</button>
-            </div>
-            <div class="profile-field">
-                <strong>Email:</strong> <span id="profile-email"></span>
-                <button class="edit-button" data-field="email">Edit</button>
-            </div>
-            <div class="profile-field">
-                <strong>Address:</strong> <span id="profile-address"></span>
-                <button class="edit-button" data-field="address">Edit</button>
-            </div>
-            <div class="profile-field">
-                <strong>Phone:</strong> <span id="profile-phone"></span>
-                <button class="edit-button" data-field="phone">Edit</button>
-            </div>
-            <button class="logout-button" onclick="window.location.href='./logout.html'">Logout</button>
-        </div>
-    </div>
 
+    <div class="admin">
+        <header class="admin__header">
+          <a href="#" class="logo"><h1>Nido</h1></a>
+          <div class="toolbar">
+            <div class="toolbar__left">
+              <div class="welcome"><h2 id="welcome-message">Welcome to Nido!</h2></div>
+            </div>
+            <div class="toolbar__right">
+              <a id="cart-button" class="btn" href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+              <a id="auth-button" class="btn" href="login.html">Login</a>
+               <!---<a href="#" class="auth-button" onclick="handleAuth()">logout</button></a><i class="fa fa-sign-out"></i></a> -->
+            </div>
+          </div>
+        </header>
+  
+        <nav class="admin__nav">
+          <ul class="menu">
+            <li class="menu__title">Dashboard</li>
+            <li class="menu__item"><a class="menu__link" href="../index.html"><i class="fa fa-home"></i> Home</a></li>
+            <li class="menu__item"><a class="menu__link" href="history.html"><i class="fa fa-history"></i> Maintenance History</a></li>
+            <li class="menu__item"><a class="menu__link" href="roomcustomization.html"><i class="fa fa-paint-brush"></i> Room Customization</a></li>
+            <li class="menu__item"><a class="menu__link" href="cart.html"><i class="fa fa-shopping-cart"></i> Shopping Cart</a></li>
+            <li class="menu__item"><a class="menu__link is-active" href="userpage.html"><i class="fa fa-gear"></i> Settings</a></li>
+          </ul>
+        </nav>
+  
+        <main class="admin__main">
+          <div class="dashboard">
+            <div id="root">
+                <div class="profile-container">
+                    <div class="avatar-circle">
+                        <span class="avatar-letter" id="avatar-letter"></span>
+                    </div>
+                    <h1>User Profile</h1>
+                    <div class="profile-field">
+                        <strong>Username:</strong> <span id="profile-username"></span>
+                        <button class="edit-button" data-field="username">Edit</button>
+                    </div>
+                    <div class="profile-field">
+                        <strong>Email:</strong> <span id="profile-email"></span>
+                        <button class="edit-button" data-field="email">Edit</button>
+                    </div>
+                    <div class="profile-field">
+                        <strong>Address:</strong> <span id="profile-address"></span>
+                        <button class="edit-button" data-field="address">Edit</button>
+                    </div>
+                    <div class="profile-field">
+                        <strong>Phone:</strong> <span id="profile-phone"></span>
+                        <button class="edit-button" data-field="phone">Edit</button>
+                    </div>
+                    <button class="logout-button" onclick="window.location.href='./logout.html'">Logout</button>
+                </div>
+            </div>        
+            </div>
+          </div>
+        </main>
+      </div>
     <script src="../scripts/userpage.js"></script>
 </body>
 </html>

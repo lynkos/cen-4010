@@ -1,3 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+}
+
 .profile-container {
     max-width: 400px;
     background: white;
@@ -6,7 +17,7 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.profile-container h1 {
+h1 {
     text-align: center;
     color: #2c3e50;
     margin-bottom: 30px;
@@ -23,7 +34,7 @@
 .edit-button {
     margin-left: 10px;
     padding: 8px 15px;
-    background: #44bd9f;
+    background: #2980b9;
     color: white;
     border: none;
     border-radius: 5px;
@@ -32,14 +43,14 @@
 }
 
 .edit-button:hover {
-    background: #186b56;
+    background: #3498db;
 }
 
 .logout-button {
     width: 100%;
     padding: 10px;
     margin-top: 20px;
-    background: #f1364c;
+    background: #e74c3c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -54,7 +65,7 @@
 .avatar-circle {
     width: 100px;
     height: 100px;
-    background: #4497bd;
+    background: #2980b9;
     border-radius: 50%;
     display: flex;
     align-items: center;

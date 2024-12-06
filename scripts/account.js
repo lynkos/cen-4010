@@ -7,13 +7,34 @@ function logCurrentUsers() {
   console.log("Current users in local storage:", users);
 }
 
+// SQL Injection
+function sanitizeInput(input) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    '/': '&#x2F;',
+    '`': '&#x60;',
+    '=': '&#x3D;',
+    '{': '&#123;',
+    '}': '&#125;',
+    '(': '&#40;',
+    ')': '&#41;',
+    ';': '&#59;'
+  };
+
+  const reg = /[&<>"'/`=(){};]/g;
+  return input.replace(reg, (match) => map[match]);
+}
+
 // Register a new user
 function register() {
-  
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const username = document.getElementById("user").value.trim();
-  const password = document.getElementById("pw").value.trim();
+  const name = sanitizeInput(document.getElementById("name").value.trim());
+  const email = sanitizeInput(document.getElementById("email").value.trim());
+  const username = sanitizeInput(document.getElementById("user").value.trim());
+  const password = sanitizeInput(document.getElementById("pw").value.trim());
 
   // Validate fields
   if (!name || !email || !username || !password) {
@@ -44,11 +65,10 @@ function register() {
 
 // Validate user login
 function validate(event) {
-
   if (event) event.preventDefault();
   
-  const username = document.getElementById("userName").value.trim();
-  const password = document.getElementById("userPw").value.trim();
+  const username = sanitizeInput(document.getElementById("userName").value.trim());
+  const password = sanitizeInput(document.getElementById("userPw").value.trim());
 
   // Get users from local storage
   const users = JSON.parse(localStorage.getItem(USERS_KEY)) || {};

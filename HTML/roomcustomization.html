@@ -4,36 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Room Customization</title>
-    <!-- Link to the external CSS file -->
+    
     <link href="../assets/stylesheets/style.css" rel="stylesheet">
     <link href="../assets/stylesheets/roomcustomization.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div id="root">
-        <div class="customization-container">
-            <h1>Room Customization</h1>
-            <div class="room-field">
-                <strong>Bedrooms:</strong>
-                <div class="counter-container">
-                    <button class="counter-button" data-action="decrease" data-type="bedrooms">-</button>
-                    <span class="counter-value" id="bedrooms-count">0</span>
-                    <button class="counter-button" data-action="increase" data-type="bedrooms">+</button>
+    <div class="admin">
+        <header class="admin__header">
+          <a href="#" class="logo"><h1>Nido</h1></a>
+          <div class="toolbar">
+            <div class="toolbar__left">
+              <div class="welcome"><h2 id="welcome-message">Welcome to Nido!</h2></div>
+            </div>
+            <div class="toolbar__right">
+              <a id="cart-button" class="btn" href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+              <a id="auth-button" class="btn" href="login.html">Login</a>
+               <!---<a href="#" class="auth-button" onclick="handleAuth()">logout</button></a><i class="fa fa-sign-out"></i></a> -->
+            </div>
+          </div>
+        </header>
+  
+        <nav class="admin__nav">
+          <ul class="menu">
+            <li class="menu__title">Dashboard</li>
+            <li class="menu__item"><a class="menu__link" href="../index.html"><i class="fa fa-home"></i> Home</a></li>
+            <li class="menu__item"><a class="menu__link" href="history.html"><i class="fa fa-history"></i> Maintenance History</a></li>
+            <li class="menu__item"><a class="menu__link is-active" href="roomcustomization.html"><i class="fa fa-paint-brush"></i> Room Customization</a></li>
+            <li class="menu__item"><a class="menu__link" href="cart.html"><i class="fa fa-shopping-cart"></i> Shopping Cart</a></li>
+            <li class="menu__item"><a class="menu__link" href="userpage.html"><i class="fa fa-gear"></i> Settings</a></li>
+          </ul>
+        </nav>
+  
+        <main class="admin__main">
+          <div class="dashboard">
+            <div id="root">
+                <div class="customization-container">
+                    <h1>Room Customization</h1>
+                    <div class="room-field">
+                        <strong>Bedrooms:</strong>
+                        <div class="counter-container">
+                            <button class="counter-button" data-action="decrease" data-type="bedrooms">-</button>
+                            <span class="counter-value" id="bedrooms-count">0</span>
+                            <button class="counter-button" data-action="increase" data-type="bedrooms">+</button>
+                        </div>
+                    </div>
+                    <div class="room-field">
+                        <strong>Bathrooms:</strong>
+                        <div class="counter-container">
+                            <button class="counter-button" data-action="decrease" data-type="bathrooms">-</button>
+                            <span class="counter-value" id="bathrooms-count">0</span>
+                            <button class="counter-button" data-action="increase" data-type="bathrooms">+</button>
+                        </div>
+                    </div>
+                    <button class="save-button">Save Configuration</button>
                 </div>
             </div>
-            <div class="room-field">
-                <strong>Bathrooms:</strong>
-                <div class="counter-container">
-                    <button class="counter-button" data-action="decrease" data-type="bathrooms">-</button>
-                    <span class="counter-value" id="bathrooms-count">0</span>
-                    <button class="counter-button" data-action="increase" data-type="bathrooms">+</button>
-                </div>
             </div>
-            <button class="save-button">Save Configuration</button>
-        </div>
+          </div>
+        </main>
     </div>
-
     <script src="../scripts/roomcustomization.js"></script>
 </body>
 </html>
