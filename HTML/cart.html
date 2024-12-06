@@ -24,18 +24,14 @@
       <a href="#" class="logo"><h1>Nido</h1></a>
       <div class="toolbar">
         <div class="toolbar__left">
-          <div class="welcome"><h2 id="welcome-message">Welcome to Nido!</h2></div>
           </div>
         <div class="toolbar__right">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">
             <i class="fas fa-cart-shopping"></i> Cart (<span class="total-count"></span>)
           </button>
           
-          <!-- <button class="clear-cart btn btn-danger">
-            <i class="fas fa-trash"></i> Empty Cart
-          </button> -->
           <!-- <a href="login.html" class="btn login"><i class="fa fa-sign-in"></i> Login</a> -->
-          <a href="logout.html" class="btn logout"><i class="fa fa-sign-out"></i> Logout</a>
+          <a id="auth-button" class="btn login" href="login.html"><i class="fa fa-sign-in"></i> Login</a>
         </div>
       </div>
     </header>
@@ -57,34 +53,34 @@
             <div class="row">
               <div class="col">
                 <div class="card" style="width: 20rem;">
-          <img class="card-img-top" src="https://www.filtersfast.com/ProdImages/2inch6pack-filters.jpg" alt="Air Filter">
+          <img class="card-img-top" src="../assets/images/filters.jpg" alt="Air Filter">
           <div class="card-block">
             <h4 class="card-title">Air Filter</h4>
             <p class="card-text">Price: $30</p>
-            <a href="#" data-name="Air_Filter" data-price="30" class="add-to-cart btn btn-primary">Add to Cart</a>
-            <a href="https://www.amazon.com/s?k=air+filter&crid=RI04SX21OYXI&sprefix=air+filter%2Caps%2C194&ref=nb_sb_noss_2" target="_blank" class="add-to-cart btn btn-secondary">Buy Now</a>
+            <a href="#" data-name="Air_Filter" data-price="30" class="add-to-cart btn btn-primary"><i class="fas fa-plus" aria-hidden="true"></i> Add to Cart</a>
+            <a href="https://www.amazon.com/s?k=air+filter&crid=RI04SX21OYXI&sprefix=air+filter%2Caps%2C194&ref=nb_sb_noss_2" target="_blank" class="add-to-cart btn btn-secondary"><i class="fas fa-dollar-sign" aria-hidden="true"></i> Buy Now</a>
           </div>
         </div>
           </div>
           <div class="col">
             <div class="card" style="width: 20rem;">
-          <img class="card-img-top" src="https://m.media-amazon.com/images/I/61htYg6TZiL._AC_SL1500_.jpg" alt="LED Light Bulbs">
+          <img class="card-img-top" src="../assets/images/led.jpg" alt="LED Light Bulbs">
           <div class="card-block">
             <h4 class="card-title">LED Light Bulbs</h4>
             <p class="card-text">Price: $9.99</p>
-            <a href="#" data-name="LED_Light_Bulbs" data-price="9.99" class="add-to-cart btn btn-primary">Add to Cart</a>
-            <a href="https://www.amazon.com/s?k=led+light+bulb&crid=FR8VRHEV5TWD&sprefix=led+light+%2Caps%2C165&ref=nb_sb_ss_ts-doa-p_1_10" target="_blank" class="add-to-cart btn btn-secondary">Buy Now</a>
+            <a href="#" data-name="LED_Light_Bulbs" data-price="9.99" class="add-to-cart btn btn-primary"><i class="fas fa-plus" aria-hidden="true"></i> Add to Cart</a>
+            <a href="https://www.amazon.com/s?k=led+light+bulb&crid=FR8VRHEV5TWD&sprefix=led+light+%2Caps%2C165&ref=nb_sb_ss_ts-doa-p_1_10" target="_blank" class="add-to-cart btn btn-secondary"><i class="fas fa-dollar-sign" aria-hidden="true"></i> Buy Now</a>
           </div>
         </div>
               </div>
               <div class="col">
                 <div class="card" style="width: 20rem;">
-          <img class="card-img-top" src="https://m.media-amazon.com/images/I/81+jq46RN9L._AC_SL1500_.jpg" alt="Screwdriver Set with Case">
+          <img class="card-img-top" src="../assets/images/screwdriver.jpg" alt="Screwdriver Set with Case">
           <div class="card-block">
             <h4 class="card-title">Screwdriver Set with Case</h4>
             <p class="card-text">Price: $24.99</p>
-            <a href="#" data-name="Screwdriver_Set" data-price="24.99" class="add-to-cart btn btn-primary">Add to Cart</a>
-            <a href="https://www.amazon.com/s?k=screwdriver+set+with+case&crid=2DBPAX0MADIKQ&sprefix=Screwdriver+Set+with+Case%2Caps%2C169&ref=nb_sb_ss_ts-doa-p_1_25" target="_blank" class="add-to-cart btn btn-secondary">Buy Now</a>
+            <a href="#" data-name="Screwdriver_Set" data-price="24.99" class="add-to-cart btn btn-primary"><i class="fas fa-plus" aria-hidden="true"></i> Add to Cart</a>
+            <a href="https://www.amazon.com/s?k=screwdriver+set+with+case&crid=2DBPAX0MADIKQ&sprefix=Screwdriver+Set+with+Case%2Caps%2C169&ref=nb_sb_ss_ts-doa-p_1_25" target="_blank" class="add-to-cart btn btn-secondary"><i class="fas fa-dollar-sign" aria-hidden="true"></i> Buy Now</a>
           </div>
         </div>
               </div>
@@ -105,8 +101,9 @@
                 <div>Total price: $<span class="total-cart"></span></div>
               </div>
               <div class="modal-footer">
+                <button type="button" class="clear-cart btn btn-danger"><i class="fas fa-eraser"></i> Clear All</button>
                 <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-                <a target="_blank" href="https://amazon.com" alt="Amazon link"><button type="button" class="btn btn-primary">Order Now</button></a>
+                <a target="_blank" href="https://amazon.com" alt="Amazon link"><button type="button" class="btn btn-primary"><i class="fas fa-dollar-sign" aria-hidden="true"></i> Place Order</button></a>
               </div>
             </div>
           </div>
@@ -114,7 +111,8 @@
       </div>
     </main>
   </div>
-  <!-- <script src="../scripts/index.js"></script> -->
+  <script src="../scripts/account.js"></script>
+  <script src="../scripts/index.js"></script>
   <script src="../scripts/cart.js"></script>
 </body>
 </html>
