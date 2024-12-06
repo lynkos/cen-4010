@@ -90,6 +90,7 @@ input[type="checkbox"] { /*change checkbox color*/
 
 #tasks-container {
   display: none; /* Hidden by default */
+  margin: 0 auto;
 }
 
 /* Create two equal columns that floats next to each other */
